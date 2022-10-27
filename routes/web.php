@@ -13,17 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return "Seja bem vindo ao Laravel";
-});
-Route::get('/sobre-nos', function () {
-    return "Rota sobre nós";
-});
-Route::get('/contato', function () {
-    return "Rota contato";
-});
+Route::get('/', 'PrincipalController@principal');
+Route::get('/sobre-nos', 'SobreNosController@sobreNos');
+Route::get('/contato', 'ContatoController@contato');
+
+
 
 /*
+verbo http
+
 get
 post
 put
