@@ -14,18 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PrincipalController@principal');
-
 Route::get('/contato', 'ContatoController@contato');
-
 Route::get('/sobrenos', 'SobreNosController@sobreNos');
 
-Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem?}', function(String $nome, String $categoria, String $assunto, String $mensagem = null){
-    echo 'Nome '.$nome."<br>";
-    echo 'Categoria '.$categoria."<br>";
-    echo 'Assunto '.$assunto."<br>";
-    echo 'Mensagem '.$mensagem."<br>";
+Route::get('/login', function(){return "login";});
 
+
+Route::prefix('/app')->group(function(){
+    Route::get('/clientes', function(){return "clientes";});
+    Route::get('/fornecedores', function(){return "fornecedores";});
+    Route::get('/produtos', function(){return "produtos";});
 });
+
+
 Route::get('/categoria/{nome}/{categoria_id}', function(String $nome = "Unkown", int $categoria_id = 1){
     echo 'Nome '.$nome."<br>";
     echo 'Categoria ID '.$categoria_id."<br>";
