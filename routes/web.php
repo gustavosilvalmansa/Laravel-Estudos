@@ -26,3 +26,8 @@ Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem?}', function(String 
     echo 'Mensagem '.$mensagem."<br>";
 
 });
+Route::get('/categoria/{nome}/{categoria_id}', function(String $nome = "Unkown", int $categoria_id = 1){
+    echo 'Nome '.$nome."<br>";
+    echo 'Categoria ID '.$categoria_id."<br>";
+})->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');
+
