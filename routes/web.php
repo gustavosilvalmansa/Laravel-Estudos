@@ -31,15 +31,17 @@ Route::get('/categoria/{nome}/{categoria_id}', function(String $nome = "Unkown",
     echo 'Categoria ID '.$categoria_id."<br>";
 })->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');
 
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
 
-Route::get('/rota1', function(){
+
+Route::get('/redir1', function(){
     echo 'rota 1';
-})->name('site.rota1');
+})->name('site.redir1');
 
 
-Route::get('/rota2', function(){
-    return redirect()->route('site.rota1');
-})->name('site.rota2');
+Route::get('/redir2', function(){
+    return redirect()->route('site.redir1');
+})->name('site.redir2');
 
 Route::fallback(function(){
     echo  "Rota de Fallback <a href='".route('site.index')."'>Clique aqui para retornar</a>";
