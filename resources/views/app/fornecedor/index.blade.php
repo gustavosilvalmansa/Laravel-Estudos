@@ -27,8 +27,16 @@ Fornecedor: {{$fornecedores[0]['Status']}}
 @endunless  --}}
 
 @isset($fornecedores)
-Fornecedor: {{$fornecedores[0]['Nome']}}
-<br>
-Fornecedor: {{$fornecedores[0]['Status']}}
-<br>
+    Fornecedor: {{$fornecedores[0]['Nome']}}
+    <br>
+    Fornecedor: {{$fornecedores[0]['Status']}}
+    <br>
+    @isset($fornecedores[0]['CNPJ'])
+        CNPJ: {{$fornecedores[0]['CNPJ']}}
+
+        @empty($fornecedores[0]['CNPJ'])
+            - Vazio
+        @endempty
+
+    @endisset
 @endisset
