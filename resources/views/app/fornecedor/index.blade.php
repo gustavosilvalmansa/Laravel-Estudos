@@ -14,12 +14,21 @@
     <h3> Mais de 10 </h3>
 @else
     <h3>Nenhum fornecedor</h3>
-@endif --}}
+@endif
 
+
+Estrutura do comando unless
 Fornecedor: {{$fornecedores[0]['Nome']}}
 <br>
 Fornecedor: {{$fornecedores[0]['Status']}}
 <br>
 @unless($fornecedores[0]['Status'] == 'S')
     Inativo
-@endunless
+@endunless  --}}
+
+@isset($fornecedores)
+Fornecedor: {{$fornecedores[0]['Nome']}}
+<br>
+Fornecedor: {{$fornecedores[0]['Status']}}
+<br>
+@endisset
