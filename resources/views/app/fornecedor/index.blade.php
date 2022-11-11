@@ -24,7 +24,17 @@ Fornecedor: {{$fornecedores[0]['Status']}}
 <br>
 @unless($fornecedores[0]['Status'] == 'S')
     Inativo
-@endunless  --}}
+@endunless  
+
+isset
+@isset($fornecedores[0]['CNPJ'])
+        CNPJ: {{$fornecedores[0]['CNPJ']}}
+
+        @empty($fornecedores[0]['CNPJ'])
+            - Vazio
+        @endempty
+    @endisset
+--}}
 
 @isset($fornecedores)
 
@@ -32,13 +42,8 @@ Fornecedor: {{$fornecedores[0]['Status']}}
     <br>
     Fornecedor: {{$fornecedores[0]['Status']}}
     <br>
+    CNPJ: {{ $fornecedores[0]['CNPJ'] ?? ' VAZIO ' }}
 
-    @isset($fornecedores[0]['CNPJ'])
-        CNPJ: {{$fornecedores[0]['CNPJ']}}
-
-        @empty($fornecedores[0]['CNPJ'])
-            - Vazio
-        @endempty
-    @endisset
+    
 
 @endisset
