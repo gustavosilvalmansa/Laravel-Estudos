@@ -40,10 +40,23 @@ isset
 
     Fornecedor: {{$fornecedores[0]['Nome']}}
     <br>
-    Fornecedor: {{$fornecedores[0]['Status']}}
+    Ativo: {{$fornecedores[0]['Status']}}
     <br>
     CNPJ: {{ $fornecedores[0]['CNPJ'] ?? ' VAZIO ' }}
-
-    
-
+    <br>
+    TELEFONE ({{ $fornecedores[0]['DDD'] ?? '' }})  {{ $fornecedores[0]['TELEFONE'] ?? '' }}
+    <br>
+    @switch($fornecedores[0]['DDD'])
+        @case('51')
+            Porto Alegre - RS 
+            @break
+        @case('48')
+            Florianopolis - SC
+            @break
+        @case('11')
+            São Paulo - SP
+            @break
+        @default
+            Indefinido   
+    @endswitch
 @endisset
