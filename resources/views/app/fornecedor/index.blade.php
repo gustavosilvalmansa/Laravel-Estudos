@@ -61,8 +61,9 @@ isset
 --}}
 
 @isset($fornecedores)
-    @foreach ($fornecedores as $indice => $fornecedor)
-        
+    @forelse ($fornecedores as $indice => $fornecedor)
+    Fornecedor: @{{ $fornecedor['Nome'] }}
+<br>
         Fornecedor: {{$fornecedor['Nome']}}
         <br>
         Ativo: {{$fornecedor['Status']}}
@@ -85,7 +86,10 @@ isset
                 Indefinido   
         @endswitch
         <hr>
-    @endforeach
+    @empty
+    Vazio
+
+    @endforelse
 @endisset
 
 
