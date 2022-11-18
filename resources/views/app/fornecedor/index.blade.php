@@ -64,7 +64,7 @@ isset
     @forelse ($fornecedores as $indice => $fornecedor)
         Iteração atual {{ $loop ->iteration }}
         <br>
-        Fornecedor: @{{ $fornecedor['Nome'] }}
+        Código bruto: @{{ $fornecedor['Nome'] }}
         <br>
         Fornecedor: {{$fornecedor['Nome']}}
         <br>
@@ -87,6 +87,18 @@ isset
             @default
                 Indefinido   
         @endswitch
+        <br>
+       @if($loop->first)
+            Inicio do Loop
+        @endif
+           
+       @if($loop->last)
+            Fim do Loop
+
+            <br>
+
+            Total de registros {{($loop->count)}}
+        @endif
         <hr>
     @empty
     Vazio
