@@ -62,8 +62,10 @@ isset
 
 @isset($fornecedores)
     @forelse ($fornecedores as $indice => $fornecedor)
-    Fornecedor: @{{ $fornecedor['Nome'] }}
-<br>
+        Iteração atual {{ $loop ->iteration }}
+        <br>
+        Fornecedor: @{{ $fornecedor['Nome'] }}
+        <br>
         Fornecedor: {{$fornecedor['Nome']}}
         <br>
         Ativo: {{$fornecedor['Status']}}
