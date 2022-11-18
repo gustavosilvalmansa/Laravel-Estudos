@@ -34,10 +34,7 @@ isset
             - Vazio
         @endempty
     @endisset
---}}
-
-@isset($fornecedores)
-    @for($i = 0; isset($fornecedores[$i]); $i++)
+     @for($i = 0; isset($fornecedores[$i]); $i++)
         Fornecedor: {{$fornecedores[$i]['Nome']}}
         <br>
         Ativo: {{$fornecedores[$i]['Status']}}
@@ -61,6 +58,34 @@ isset
         @endswitch
         <hr>
     @endfor
+--}}
+
+@isset($fornecedores)
+    @foreach ($fornecedores as $indice => $fornecedor)
+        
+        Fornecedor: {{$fornecedor['Nome']}}
+        <br>
+        Ativo: {{$fornecedor['Status']}}
+        <br>
+        CNPJ: {{ $fornecedor['CNPJ'] ?? ' VAZIO ' }}
+        <br>
+        TELEFONE ({{ $fornecedor['DDD'] ?? '' }})  {{ $fornecedor['TELEFONE'] ?? '' }}
+        <br>
+        @switch($fornecedor['DDD'])
+            @case('51')
+                Porto Alegre - RS 
+                @break
+            @case('48')
+                Florianopolis - SC
+                @break
+            @case('11')
+                São Paulo - SP
+                @break
+            @default
+                Indefinido   
+        @endswitch
+        <hr>
+    @endforeach
 @endisset
 
 
