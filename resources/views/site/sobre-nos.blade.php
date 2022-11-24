@@ -1,7 +1,6 @@
 @extends('site.layouts.basico')
 @section('conteudo')
     @section('titulo', 'Sobre Nós')
-       @include('site.layouts._partials.topo')
 
 
     <div class="conteudo-pagina">
